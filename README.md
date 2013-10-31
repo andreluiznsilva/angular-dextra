@@ -40,7 +40,7 @@ Criar um Callback padrão para tratamento de erros
 
     $provide.factory("dxErrorHandler", function($log) {
 	return function(response) {
-		$log.error('Http Error ' + response.status + " : " + response.data);
+	    $log.error('Http Error ' + response.status + " : " + response.data);
 	}
     });
     
