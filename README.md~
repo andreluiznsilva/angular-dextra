@@ -70,6 +70,11 @@ A partir do resource bundle configurado, pode-se utiliza-lo das seguintes formas
    <div>{{'test1' | dxI18n}}</div>
    <div>{{'outher.test2' | dxI18n}}</div>
    
+ - Tag
+ 
+   <dx-i18n>test1</dx-i18n>
+   <dx-i18n>outher.test2</dx-i18n>
+   
  - Object
  
    function IndexController($scope, dxI18n){
