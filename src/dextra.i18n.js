@@ -1,6 +1,5 @@
 angular.module('dextra.i18n', []).factory("dxI18n", function(dxBundle) {
 	return function(key) {
-
 		var prefixs = key.split('.');
 
 		var object = dxBundle;
@@ -24,8 +23,8 @@ angular.module('dextra.i18n', []).factory("dxI18n", function(dxBundle) {
 
 	};
 }).filter('dxI18n', function(dxI18n) {
-	return function(input) {
-		return dxI18n(input);
+	return function(input, var1, var2, var3, var4, var5) {
+		return dxI18n(input, var1, var2, var3, var4, var5);
 	}
 }).directive('dxI18n', function(dxI18n) {
 	return {
