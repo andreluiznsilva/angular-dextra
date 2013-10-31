@@ -62,25 +62,25 @@ A partir do resource bundle configurado, pode-se utiliza-lo das seguintes formas
 
  - Directive
 
-    <div dxI18n="test1"></div>
-    <div dxI18n="outher.test2"></div>
+	<div dxI18n="test1"></div>
+	<div dxI18n="outher.test2"></div>
     
  - Filter
  
-    <div>{{'test1' | dxI18n}}</div>
-    <div>{{'outher.test2' | dxI18n}}</div>
+	<div>{{'test1' | dxI18n}}</div>
+	<div>{{'outher.test2' | dxI18n}}</div>
    
  - Tag
  
-    <dx-i18n>test1</dx-i18n>
-    <dx-i18n>outher.test2</dx-i18n>
+	<dx-i18n>test1</dx-i18n>
+	<dx-i18n>outher.test2</dx-i18n>
    
  - Object
  
-    function IndexController($scope, dxI18n){
-   
-	var test1 = dxI18n('test1');
-	var test2 = dxI18n('outher.test2');
-   
-    }
+	function IndexController($scope, dxI18n){
+      
+	    var test1 = dxI18n('test1');
+	    var test2 = dxI18n('outher.test2');
+      
+	}
    
