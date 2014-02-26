@@ -109,6 +109,7 @@ angular.module('dextra.oauth', [ 'ng', 'ngCookies' ]).config(function($httpProvi
 		service.addTokenToUrl = function(url) {
 			var token = dxOAuthStorage.get().access_token;
 			var tokenUrl = url.search('\\?') >= 0 ? '&access_token=' + token : '?access_token=' + token ;
+			
 			return url + tokenUrl;
 		}
 		

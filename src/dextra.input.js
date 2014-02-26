@@ -1,4 +1,4 @@
-var dxInput = angular.module('dextra.input', [ 'dextra.i18n', 'dextra.filter' ]);
+var dxInput = angular.module('dextra.input', [ 'dextra.i18n', 'dextra.mask' ]);
 dxInput.factory('dxInputMaskConfig', function($filter, dxMasks) {
 	var config = {
 		configFormater : function(elm, ctrl, maskName) {

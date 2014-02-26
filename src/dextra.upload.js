@@ -47,21 +47,15 @@ angular.module('dextra.upload', [ 'ng' ]).factory('dxUploader', function($http) 
 	return {
 		restrict : 'A',
 		link : function(scope, elm, attrs, ctrl) {
-
 			var name = attrs.dxUpload;
-
 			$(elm).change(function(event) {
-
 				var files = event.target.files;
-
 				if (files && files.length > 0) {
 					var value = attrs.multiple ? files : files[0];
 					scope[name] = value;
 					scope.$apply();
 				}
-
 			});
-
 		}
 	};
 })
