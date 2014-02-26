@@ -258,19 +258,19 @@ Permite autenticar as chamadas HTTP com OAuth e controlar o fluxo de autenticaç
  
  - waitFor
  
- 	waitFor("Title Change", function(doc, appWindow) {
-			return appWindow.title == 'MyTitle';
-	}, 1000);
+	 	waitFor("Title Change", function(doc, appWindow) {
+				return appWindow.title == 'MyTitle';
+		}, 1000);
 	
  - waitForPageLoadComplete
  
- 	waitForPageLoadComplete(1000);
+ 		waitForPageLoadComplete(1000);
 	
  - waitForElementToBeSelected
  
- 	waitForElementToBeSelected('.myCss', 1000);
- 	waitForElementToBeSelected('#id', 1000);
+	 	waitForElementToBeSelected('.myCss', 1000);
+	 	waitForElementToBeSelected('#id', 1000);
 	
  - waitForElementById
  
- 	waitForElementById('myId', 1000);
+ 		waitForElementById('myId', 1000);
