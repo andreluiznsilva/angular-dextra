@@ -1,38 +1,67 @@
 angular.module('dextra.upload', [ 'ng' ]).factory('dxUploader', function($http) {
-	return function(url, files) {
+	return {
 
-		var formData = new FormData();
+		upload : function(url, files) {
 
-		if (files) {
-			for ( var i = 0; i < files.length; i++) {
-				var file = files[i];
-				formData.append('file' + i, file, file.name);
+			var formData = new FormData();
+
+			if (files) {
+
+				var array = files;
+
+				if (!angular.isArray(files)) {
+					array = [];
+					array.push(files);
+				}
+
+				angular.forEach(array, function(file, index) {
+					formData.append('file' + index, file, file.name);
+				});
+
+			}
+
+			return $http.post(url, formData, {
+				headers : {
+					'Content-Type' : undefined
+				},
+				transformRequest : function(data) {
+					return data;
+				}
+			});
+
+		},
+
+		check : function(callback) {
+			var nav = navigator.userAgent.toLowerCase();
+			if (nav.indexOf('msie') != -1) {
+				var version = parseFloat(nav.split('msie')[1]);
+				if (version <= 9) {
+					callback(version);
+				}
 			}
 		}
-
-		return $http.post(url, formData, {
-			headers : {
-				'Content-Type' : false
-			},
-			transformRequest : function(data) {
-				return data;
-			}
-		});
 
 	}
 
 }).directive('dxUpload', function() {
 	return {
 		restrict : 'A',
-		require : 'ngModel',
 		link : function(scope, elm, attrs, ctrl) {
-			elm.bind('change', function(event) {
+
+			var name = attrs.dxUpload;
+
+			$(elm).change(function(event) {
+
 				var files = event.target.files;
+
 				if (files && files.length > 0) {
-					ctrl.$setViewValue(files);
+					var value = attrs.multiple ? files : files[0];
+					scope[name] = value;
 					scope.$apply();
 				}
+
 			});
+
 		}
 	};
 })

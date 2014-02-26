@@ -57,28 +57,4 @@ angular.module('dextra.http', [ 'ng' ]).config(function($httpProvider, $provide)
 		return interceptor;
 	});
 
-	$httpProvider.interceptors.push(function(dxDevMode) {
-		return {
-			request : function(request) {
-
-				var url = request.url;
-				var accept = request.headers['Accept'];
-
-				var sep = url.indexOf('?') === -1 ? '?' : '&';
-				var isTemplate = url.indexOf('template') == 0 || url.indexOf('ng-table') == 0;
-				var isStatic = url.indexOf('.html') == url.length -5;
-
-				if (dxDevMode && isStatic && !isTemplate) {
-					url = url + sep + '_=' + new Date().getTime();
-					sep = "&";
-				}
-
-				request.url = url;
-
-				return request;
-
-			}
-		}
-	});
-
 });
